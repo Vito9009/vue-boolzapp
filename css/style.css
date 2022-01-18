@@ -20,7 +20,7 @@ body{
 
 .mex-container{
     height: 100%;
-    width: 30%;
+    max-width: 30%;
     background-color: rgb(19, 28, 33);
     border-right: 1px solid rgb(63, 67, 71);
 }
@@ -75,6 +75,7 @@ body{
     height: calc(100% - 100px);
     background-image: url(https://media.discordapp.net/attachments/900784687117660230/932955837016735814/bg-chat-tile-dark_a4be512e7195b6b733d9110b408f075d.png);
     background-size: contain;
+    overflow-y: auto;
 }
 
 .img-profile{
@@ -151,4 +152,30 @@ body{
 .latest-mex{
     display: flex;
     justify-content: space-between;
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+  
+.mex-received{
+    float: left;
+    background-color: rgb(38, 45, 49);
+    padding: 10px;
+    min-height: 40px;
+    margin: 20px ;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.mex-sent{
+    float: right;
+    background-color: rgb(5, 97, 98);
+    padding: 10px;
+    min-height: 40px;
+    margin: 20px ;
+    border-radius: 10px;
+    width: 60%;
 }
