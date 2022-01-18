@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Segoe UI;
 }
 
 body{
     background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
 }
 
 .container{
@@ -22,9 +25,37 @@ body{
     border-right: 1px solid rgb(63, 67, 71);
 }
 
+.mex-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .notification-popup{
     height: 60px;
     background-color: rgb(8, 83, 115);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(63, 67, 71);
+}
+
+.search-box input{
+    width: 90%;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    border: 0px;
+    outline: none;
+    background-color: rgb(42, 47, 50);
+    color: rgb(255, 255, 255);
 }
 
 .conv-container{
@@ -32,13 +63,92 @@ body{
     width: 70%;
 }
 
-.top-banner, .bottom-banner{
+.top-banner{
     height: 50px;
     background-color: rgb(42, 47, 50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .conversation-box{
     height: calc(100% - 100px);
     background-image: url(https://media.discordapp.net/attachments/900784687117660230/932955837016735814/bg-chat-tile-dark_a4be512e7195b6b733d9110b408f075d.png);
     background-size: contain;
+}
+
+.img-profile{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-profile img{
+    height: 40px;
+    border-radius: 50%;
+}
+
+.top-banner-icon{
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon-notify{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(142, 178, 190);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-notify i{
+    color: rgb(8, 83, 115);
+}
+
+.text-mex-list{
+    height: 50px;
+    width: 80%;
+    margin: 15px 0;
+    border-bottom: 1px solid rgb(63, 67, 71);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mex-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-banner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(63, 67, 71);
+    height: 50px;
+    background-color: rgb(42, 47, 50);
+    font-size: 20px;
+
+}
+
+.bottom-banner input{
+    width: 80%;
+    height: 35px;
+    border-radius: 50px;
+    border: 0px;
+    outline: none;
+    background-color: rgb(51, 56, 59);
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.latest-mex{
+    display: flex;
+    justify-content: space-between;
 }

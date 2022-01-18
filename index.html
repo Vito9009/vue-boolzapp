@@ -13,11 +13,47 @@
        <div class="container">
             <div class="mex-container">
                 <div class="top-banner">
+                    <div class="img-profile">
+                        <img src="img/1.png" alt="">
+                    </div>
 
+                    <div class="top-banner-icon">
+                        <i class="fas fa-circle-notch"></i>
+
+                        <i class="fas fa-comment-alt"></i>
+
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
                 </div>
 
                 <div class="notification-popup">
+                    <div class="icon-notify">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
 
+                    <div class="text-notify">
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <div>Attiva notifiche desktop <i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+
+                <div class="mex-list" v-for="(user, index) in contacts">
+                    <div class="img-profile">
+                        <img :src="user.avatar" alt="">
+                    </div>
+
+                    <div class="text-mex-list">
+                        <h4 class="username">{{user.name}}</h4>
+                        <div class="latest-mex">
+                            <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
+                            <span class="text-mex-date">{{user.messages.at(-1).date}}</span>
+    
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -31,6 +67,13 @@
                 </div>
 
                 <div class="bottom-banner">
+                    <i class="far fa-grin"></i>
+
+                    <i class="fas fa-paperclip"></i>
+
+                    <input type="text" placeholder="Scrivi un messaggio">
+
+                    <i class="fas fa-microphone"></i>
 
                 </div>
             </div>
