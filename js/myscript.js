@@ -31,6 +31,7 @@ let app = new Vue({
     el: '#myvueboolzapp',
     data: {
         chatselected: 0,
+        receivedmessages: "",
         contacts: [
             {
             name: 'Michela',
@@ -121,6 +122,19 @@ let app = new Vue({
     methods:{
         chatswitch: function(index) {
                 this.chatselected = index;
-              }
         },
+        sendmex: function(){
+                if(this.receivedmessages !=''){
+                        this.contacts[this.chatselected].messages.push(
+                {
+                    date: /*Da inserire in seguito*/"",
+                    text: this.receivedmessages,
+                    status: 'sent'
+                    });
+                this.receivedmessages = "";
+                }
+        }        
+        },
+
+        
   })

@@ -20,7 +20,7 @@ body{
 
 .mex-container{
     height: 100%;
-    max-width: 30%;
+    width: 30%;
     background-color: rgb(19, 28, 33);
     border-right: 1px solid rgb(63, 67, 71);
 }
@@ -118,6 +118,13 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.text-mex-username{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
 }
 
 .mex-list{

@@ -71,22 +71,22 @@
                         <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
                             <span>{{contacts[chatselected].messages[mexindex].text}}</span>
                         </div>
-
+                
                     </div>
-                        
-                    
-    
+                
+                
+                
                 </div>
-
+                
                 <div class="bottom-banner">
                     <i class="far fa-grin"></i>
-
+                
                     <i class="fas fa-paperclip"></i>
-
-                    <input type="text" placeholder="Scrivi un messaggio">
-
+                
+                    <input v-model="receivedmessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendmex">
+                
                     <i class="fas fa-microphone"></i>
-
+                
                 </div>
             </div>
         </div>
