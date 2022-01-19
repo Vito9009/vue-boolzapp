@@ -30,6 +30,7 @@ permette di cancellare il messaggio selezionato
 let app = new Vue({
     el: '#myvueboolzapp',
     data: {
+        chatselected: 0,
         contacts: [
             {
             name: 'Michela',
@@ -116,4 +117,7 @@ let app = new Vue({
                 },
             ]
     },
+
+    
+
   })
