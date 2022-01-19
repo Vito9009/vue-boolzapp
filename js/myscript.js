@@ -133,8 +133,15 @@ let app = new Vue({
                     });
                 this.receivedmessages = "";
                 }
+
+                setTimeout(() => {
+                        this.contacts[this.chatselected].messages.push(
+                        {
+                                date: /*Da inserire in seguito*/"",
+                                text: "ok",
+                                status: 'received'
+                        });
+                }, 1000);
         }        
         },
-
-        
   })
