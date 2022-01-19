@@ -41,30 +41,34 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
-                <div class="mex-list" v-for="(user, index) in contacts">
-                    <div class="img-profile">
-                        <img :src="user.avatar" alt="">
-                    </div>
-
-                    <div class="text-mex-list">
-                        <h4 class="username">{{user.name}}</h4>
-                        <div class="latest-mex">
-                            <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
-                            <!-- <span class="text-mex-date">{{user.messages.at(-1).date}}</span> -->
+                <div v-for="(user, index) in contacts">
+                    <div class="mex-list" @click="chatswitch(index)">
+                        <div class="img-profile">
+                            <img :src="user.avatar" alt="">
+                        </div>
     
+                        <div class="text-mex-list">
+                            <h4 class="username">{{user.name}}</h4>
+                            <div class="latest-mex">
+                                <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
+                                <!-- <span class="text-mex-date">{{user.messages.at(-1).date}}</span> -->
+        
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
             <div class="conv-container">
                 <div class="top-banner">
 
+
                 </div>
 
                 <div class="conversation-box">
                     <div v-for="(mexuser, mexindex) in contacts[chatselected].messages">
-                        <div v-bind:class="`mex-${contacts[chatselected].messages[mexindex].status}`">
+                        <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
                             <span>{{contacts[chatselected].messages[mexindex].text}}</span>
                         </div>
 

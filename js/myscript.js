@@ -118,6 +118,9 @@ let app = new Vue({
             ]
     },
 
-    
-
+    methods:{
+        chatswitch: function(index) {
+                this.chatselected = index;
+              }
+        },
   })
