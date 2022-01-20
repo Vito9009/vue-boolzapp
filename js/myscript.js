@@ -32,6 +32,7 @@ let app = new Vue({
     data: {
         chatselected: 0,
         receivedmessages: "",
+        textinsearch: "",
         contacts: [
             {
             name: 'Michela',
@@ -123,6 +124,7 @@ let app = new Vue({
         chatswitch: function(index) {
                 this.chatselected = index;
         },
+
         sendmex: function(){
                 if(this.receivedmessages !=''){
                         this.contacts[this.chatselected].messages.push(
@@ -142,6 +144,17 @@ let app = new Vue({
                                 status: 'received'
                         });
                 }, 1000);
-        }        
         },
+
+        serchcontactbytext: function() {
+                let nameTextSearch = this.textinsearch.toLowerCase();
+                this.contacts.forEach(i => {
+                  if (i.name.toLowerCase().includes(nameTextSearch)) {
+                    i.visible = true;
+                  }else {
+                    i.visible = false;
+                  }
+                });
+        },
+    }
   })

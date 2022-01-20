@@ -26,38 +26,47 @@
                     </div>
                 </div>
 
-                <div class="notification-popup">
-                    <div class="icon-notify">
-                        <i class="fas fa-bell-slash"></i>
+                <div class="main-conv-container">
+
+                
+                    <div class="notification-popup">
+                        <div class="icon-notify">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+
+                        <div class="text-notify">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <div>Attiva notifiche desktop <i class="fas fa-angle-right"></i></div>
+                        </div>
                     </div>
 
-                    <div class="text-notify">
-                        <div>Ricevi notifiche di nuovi messaggi</div>
-                        <div>Attiva notifiche desktop <i class="fas fa-angle-right"></i></div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textinsearch" @keyup="serchcontactbytext">
                     </div>
-                </div>
 
-                <div class="search-box">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
-                </div>
-
-                <div v-for="(user, index) in contacts">
-                    <div class="mex-list" @click="chatswitch(index)">
-                        <div class="img-profile">
-                            <img :src="user.avatar" alt="">
+                    <div v-for="(user, index) in contacts">
+                        <div  v-if="user.visible">
+                            <div class="mex-list" @click="chatswitch(index)">
+                                <div class="img-profile">
+                                    <img :src="user.avatar" alt="">
+                                </div>
+                                
+                                <div class="text-mex-list">
+                                    <h4 class="username">{{user.name}}</h4>
+                                    <div class="latest-mex">
+                                        <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
+                                        <!-- <span class="text-mex-date">{{user.messages.at(-1).date}}</span> -->
+                
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
     
-                        <div class="text-mex-list">
-                            <h4 class="username">{{user.name}}</h4>
-                            <div class="latest-mex">
-                                <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
-                                <!-- <span class="text-mex-date">{{user.messages.at(-1).date}}</span> -->
-        
-                            </div>
-                        </div>
+
                     </div>
 
-                </div>
+            </div>
+
             </div>
 
             <div class="conv-container">
@@ -67,13 +76,12 @@
                 </div>
 
                 <div class="conversation-box">
-                    <div v-for="(mexuser, mexindex) in contacts[chatselected].messages">
+                    <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
                         <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
                             <span>{{contacts[chatselected].messages[mexindex].text}}</span>
                         </div>
                 
                     </div>
-                
                 
                 
                 </div>

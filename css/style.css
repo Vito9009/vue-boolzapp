@@ -9,6 +9,13 @@ body{
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     font-size: 14px;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
 
 .container{
@@ -16,6 +23,7 @@ body{
     width: 80vw;
     margin: 50px auto;
     display: flex;
+    overflow: hidden;
 }
 
 .mex-container{
@@ -76,9 +84,15 @@ body{
 
 .conversation-box{
     height: calc(100% - 100px);
-    overflow-y: auto;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
 }
 
+.conversation-box::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+    
 .img-profile{
     width: 60px;
     display: flex;
@@ -175,7 +189,7 @@ body{
     min-height: 40px;
     margin: 20px ;
     border-radius: 10px;
-    width: 60%;
+    max-width: 40%;
 }
 
 .mex-sent{
@@ -185,5 +199,16 @@ body{
     min-height: 40px;
     margin: 20px ;
     border-radius: 10px;
-    width: 60%;
+    max-width: 40%;
+}
+
+.main-conv-container{
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+    height: calc(100% - 50px);
+}
+
+.main-conv-container::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
