@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="search-box">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textinsearch" @keyup="serchcontactbytext">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textinsearch" @keyup="searchcontactbytext">
                     </div>
 
                     <div v-for="(user, index) in contacts">
@@ -70,15 +70,19 @@
             </div>
 
             <div class="conv-container">
-                <div class="top-banner">
+                <div class="top-banner-main">
+                    <div class="img-profile">
+                        <img :src="contacts[chatselected].avatar" alt="">
+                    </div>
 
-
+                    <h4>{{contacts[chatselected].name}}</h4>
                 </div>
 
                 <div class="conversation-box">
                     <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
                         <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
                             <span>{{contacts[chatselected].messages[mexindex].text}}</span>
+
                         </div>
                 
                     </div>
@@ -91,7 +95,7 @@
                 
                     <i class="fas fa-paperclip"></i>
                 
-                    <input v-model="receivedmessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendmex">
+                    <input v-model="sentmessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendmex">
                 
                     <i class="fas fa-microphone"></i>
                 

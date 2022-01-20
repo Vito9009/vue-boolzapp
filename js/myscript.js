@@ -31,7 +31,7 @@ let app = new Vue({
     el: '#myvueboolzapp',
     data: {
         chatselected: 0,
-        receivedmessages: "",
+        sentmessages: "",
         textinsearch: "",
         contacts: [
             {
@@ -126,14 +126,14 @@ let app = new Vue({
         },
 
         sendmex: function(){
-                if(this.receivedmessages !=''){
+                if(this.sentmessages !=''){
                         this.contacts[this.chatselected].messages.push(
                 {
                     date: /*Da inserire in seguito*/"",
-                    text: this.receivedmessages,
+                    text: this.sentmessages,
                     status: 'sent'
                     });
-                this.receivedmessages = "";
+                this.sentmessages = "";
                 }
 
                 setTimeout(() => {
@@ -146,7 +146,7 @@ let app = new Vue({
                 }, 1000);
         },
 
-        serchcontactbytext: function() {
+        searchcontactbytext: function() {
                 let nameTextSearch = this.textinsearch.toLowerCase();
                 this.contacts.forEach(i => {
                   if (i.name.toLowerCase().includes(nameTextSearch)) {
@@ -156,5 +156,5 @@ let app = new Vue({
                   }
                 });
         },
-    }
+    }        
   })

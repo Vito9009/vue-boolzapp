@@ -82,6 +82,14 @@ body::-webkit-scrollbar {
     align-items: center;
 }
 
+.top-banner-main{
+    height: 50px;
+    background-color: rgb(42, 47, 50);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .conversation-box{
     height: calc(100% - 100px);
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
