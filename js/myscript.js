@@ -129,7 +129,7 @@ let app = new Vue({
                 if(this.sentmessages !=''){
                         this.contacts[this.chatselected].messages.push(
                 {
-                    date: /*Da inserire in seguito*/"",
+                    date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
                     text: this.sentmessages,
                     status: 'sent'
                     });
@@ -139,7 +139,7 @@ let app = new Vue({
                 setTimeout(() => {
                         this.contacts[this.chatselected].messages.push(
                         {
-                                date: /*Da inserire in seguito*/"",
+                                date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
                                 text: "ok",
                                 status: 'received'
                         });
@@ -156,5 +156,6 @@ let app = new Vue({
                   }
                 });
         },
+
     }        
   })

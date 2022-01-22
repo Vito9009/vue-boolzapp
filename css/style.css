@@ -220,3 +220,12 @@ body::-webkit-scrollbar {
 .main-conv-container::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
+
+.text-mex-date{
+    font-size: 9px;
+    padding-top: 10px;
+}
+
+.text-mex-word-break{
+    word-break: break-all;
+}

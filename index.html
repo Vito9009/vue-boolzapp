@@ -55,7 +55,7 @@
                                     <h4 class="username">{{user.name}}</h4>
                                     <div class="latest-mex">
                                         <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
-                                        <!-- <span class="text-mex-date">{{user.messages.at(-1).date}}</span> -->
+                                        <span class="text-mex-date">{{user.messages.at(-1).date}}</span>
                 
                                     </div>
                                 </div>
@@ -81,12 +81,14 @@
                 <div class="conversation-box">
                     <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
                         <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
-                            <span>{{contacts[chatselected].messages[mexindex].text}}</span>
+                            <span class="text-mex-word-break">{{contacts[chatselected].messages[mexindex].text}}</span>
+                            <div class="text-mex-date">{{contacts[chatselected].messages[mexindex].date}}</div>
+
 
                         </div>
                 
+                        
                     </div>
-                
                 
                 </div>
                 
@@ -103,7 +105,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
 </body>
