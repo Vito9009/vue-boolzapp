@@ -175,6 +175,16 @@ let app = new Vue({
 
         infomex: function() {
                 alert("Stai chattando con " + this.contacts[this.chatselected].name);
+        },
+
+        scroll: function() {
+                const chat = document.querySelector('.conversation-box');
+                chat.scrollTop = chat.scrollHeight;
+        
         }
-    }        
+    },
+    
+    updated: function() {
+            this.scroll();
+    },
   })
