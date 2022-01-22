@@ -34,6 +34,7 @@ let app = new Vue({
         sentmessages: "",
         textinsearch: "",
         deletemexi: 0,
+        randomanswer:["Ciao", "Ci vediamo più tardi", "Mi raccomando, fatti sentire", "Il cane l'ho lasciato alla tua vicina", "Sicura che non ti serve una mano?", "Possiamo andare al cinema e dopo al ristorante"],
         contacts: [
             {
             name: 'Michela',
@@ -143,19 +144,24 @@ let app = new Vue({
                 {
                     date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
                     text: this.sentmessages,
-                    status: 'sent'
+                    status: 'sent',
+                    deleteoption: false
                     });
                 this.sentmessages = "";
-                }
+                
 
                 setTimeout(() => {
+                        let randomtextanswer = this.randomanswer[Math.floor(Math.random() * this.randomanswer.length)];
+
                         this.contacts[this.chatselected].messages.push(
                         {
                                 date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
-                                text: "ok",
-                                status: 'received'
+                                text: randomtextanswer,
+                                status: 'received',
+                                deleteoption: false
                         });
                 }, 1000);
+                }
         },
 
         searchcontactbytext: function() {
