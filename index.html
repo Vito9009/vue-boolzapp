@@ -80,17 +80,24 @@
 
                 <div class="conversation-box">
                     <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
-                        <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`">
-                            <span class="text-mex-word-break">{{contacts[chatselected].messages[mexindex].text}}</span>
-                            <div class="text-mex-date">{{contacts[chatselected].messages[mexindex].date}}</div>
+                        <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`" @click="mexuser.deleteoption = !mexuser.deleteoption">
+                            <div>
+                                <span class="text-mex-word-break">{{contacts[chatselected].messages[mexindex].text}}</span>
+                                <div class="text-mex-date">{{contacts[chatselected].messages[mexindex].date}}</div>    
+                            </div>
 
-
+                            <div class="delete-info-box" >
+                                <div class="mex-options" v-if="mexuser.deleteoption">
+                                    <div class="info" @click="infomex(mexindex)">Info</div>
+                                    <div class="del" @click="deletemex(mexindex)">Elimina</div>
+                                </div>    
+                            </div>
                         </div>
-                
-                        
                     </div>
                 
+                        
                 </div>
+                
                 
                 <div class="bottom-banner">
                     <i class="far fa-grin"></i>

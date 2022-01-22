@@ -71,7 +71,6 @@ body::-webkit-scrollbar {
     width: 70%;
     background-image: url(https://media.discordapp.net/attachments/900784687117660230/932955837016735814/bg-chat-tile-dark_a4be512e7195b6b733d9110b408f075d.png);
     background-size: contain;
-
 }
 
 .top-banner{
@@ -228,4 +227,28 @@ body::-webkit-scrollbar {
 
 .text-mex-word-break{
     word-break: break-all;
+}
+
+.delete-info-box{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.mex-options{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 60px;
+}
+
+.info:hover{
+    color: rgb(255, 238, 0);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.del:hover{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
 }
