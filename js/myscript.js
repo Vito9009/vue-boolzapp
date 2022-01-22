@@ -139,7 +139,8 @@ let app = new Vue({
         },
 
         sendmex: function(){
-                if(this.sentmessages !=''){
+                let spacetextctrl = this.sentmessages.replace(/ /g, "");
+                if(spacetextctrl != "") {
                         this.contacts[this.chatselected].messages.push(
                 {
                     date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
