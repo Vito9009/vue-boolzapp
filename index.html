@@ -10,14 +10,14 @@
 </head>
 <body>
     <div id="myvueboolzapp">
-       <div class="container">
+       <div class="container display-flex">
             <div class="mex-container">
-                <div class="top-banner">
-                    <div class="img-profile">
+                <div class="top-banner display-flex">
+                    <div class="img-profile display-flex">
                         <img src="img/1.png" alt="">
                     </div>
 
-                    <div class="top-banner-icon">
+                    <div class="top-banner-icon display-flex">
                         <i class="fas fa-circle-notch"></i>
 
                         <i class="fas fa-comment-alt"></i>
@@ -29,8 +29,8 @@
                 <div class="main-conv-container">
 
                 
-                    <div class="notification-popup">
-                        <div class="icon-notify">
+                    <div class="notification-popup display-flex">
+                        <div class="icon-notify display-flex">
                             <i class="fas fa-bell-slash"></i>
                         </div>
 
@@ -40,20 +40,20 @@
                         </div>
                     </div>
 
-                    <div class="search-box">
+                    <div class="search-box display-flex">
                         <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textinsearch" @keyup="searchcontactbytext">
                     </div>
 
                     <div v-for="(user, index) in contacts">
                         <div  v-if="user.visible">
-                            <div class="mex-list" @click="chatswitch(index)">
-                                <div class="img-profile">
+                            <div class="mex-list display-flex" @click="chatswitch(index)">
+                                <div class="img-profile display-flex">
                                     <img :src="user.avatar" alt="">
                                 </div>
                                 
-                                <div class="text-mex-list">
+                                <div class="text-mex-list display-flex">
                                     <h4 class="username">{{user.name}}</h4>
-                                    <div class="latest-mex">
+                                    <div class="latest-mex display-flex">
                                         <span class="text-mex-username">{{user.messages.at(-1).text}}</span>
                                         <span class="text-mex-date">{{user.messages.at(-1).date}}</span>
                 
@@ -70,8 +70,8 @@
             </div>
 
             <div class="conv-container">
-                <div class="top-banner-main">
-                    <div class="img-profile">
+                <div class="top-banner-main display-flex">
+                    <div class="img-profile display-flex">
                         <img :src="contacts[chatselected].avatar" alt="">
                     </div>
 
@@ -87,7 +87,7 @@
                             </div>
 
                             <div class="delete-info-box" >
-                                <div class="mex-options" v-if="mexuser.deleteoption">
+                                <div class="mex-options display-flex" v-if="mexuser.deleteoption">
                                     <div class="info" @click="infomex(mexindex)">Info</div>
                                     <div class="del" @click="deletemex(mexindex)">Elimina</div>
                                 </div>    
@@ -99,7 +99,7 @@
                 </div>
                 
                 
-                <div class="bottom-banner">
+                <div class="bottom-banner display-flex">
                     <i class="far fa-grin"></i>
                 
                     <i class="fas fa-paperclip"></i>

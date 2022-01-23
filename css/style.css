@@ -9,20 +9,30 @@ body{
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     font-size: 14px;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
 }
 
-body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+body, .main-conv-container, .conversation-box{ /* Internet Explorer + Edge + Firefox*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar, .main-conv-container::-webkit-scrollbar, .conversation-box::-webkit-scrollbar{ /* Chrome + Safari + Opera */
+    display: none;
+}
+
+.conversation-box{
+    height: calc(100% - 100px);
+}
+
+.main-conv-container{
+    height: calc(100% - 50px);
 }
 
 .container{
     height: 80vh;
     width: 80vw;
     margin: 50px auto;
-    display: flex;
     overflow: hidden;
 }
 
@@ -33,22 +43,14 @@ body::-webkit-scrollbar {
     border-right: 1px solid rgb(63, 67, 71);
 }
 
-.mex-list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .notification-popup{
     height: 60px;
     background-color: rgb(8, 83, 115);
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .search-box{
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
@@ -76,7 +78,6 @@ body::-webkit-scrollbar {
 .top-banner{
     height: 50px;
     background-color: rgb(42, 47, 50);
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -84,25 +85,12 @@ body::-webkit-scrollbar {
 .top-banner-main{
     height: 50px;
     background-color: rgb(42, 47, 50);
-    display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-.conversation-box{
-    height: calc(100% - 100px);
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
-}
-
-.conversation-box::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
 }
     
 .img-profile{
     width: 60px;
-    display: flex;
     justify-content: center;
 }
 
@@ -113,7 +101,6 @@ body::-webkit-scrollbar {
 
 .top-banner-icon{
     width: 120px;
-    display: flex;
     justify-content: space-around;
 }
 
@@ -122,7 +109,6 @@ body::-webkit-scrollbar {
     height: 40px;
     background-color: rgb(142, 178, 190);
     border-radius: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -136,7 +122,6 @@ body::-webkit-scrollbar {
     width: 80%;
     margin: 15px 0;
     border-bottom: 1px solid rgb(63, 67, 71);
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -149,13 +134,11 @@ body::-webkit-scrollbar {
 }
 
 .mex-list{
-    display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .bottom-banner{
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
@@ -163,7 +146,6 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(42, 47, 50);
     font-size: 20px;
-
 }
 
 .bottom-banner input{
@@ -179,7 +161,6 @@ body::-webkit-scrollbar {
 }
 
 .latest-mex{
-    display: flex;
     justify-content: space-between;
 }
 
@@ -192,32 +173,19 @@ body::-webkit-scrollbar {
 .mex-received{
     float: left;
     background-color: rgb(38, 45, 49);
-    padding: 10px;
-    min-height: 40px;
-    margin: 20px ;
-    border-radius: 10px;
-    max-width: 40%;
 }
 
 .mex-sent{
     float: right;
     background-color: rgb(5, 97, 98);
+}
+
+.mex-received, .mex-sent{
     padding: 10px;
     min-height: 40px;
     margin: 20px ;
     border-radius: 10px;
     max-width: 40%;
-}
-
-.main-conv-container{
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
-    height: calc(100% - 50px);
-}
-
-.main-conv-container::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
 }
 
 .text-mex-date{
@@ -235,7 +203,6 @@ body::-webkit-scrollbar {
 }
 
 .mex-options{
-    display: flex;
     justify-content: space-around;
     flex-direction: column;
     height: 60px;
@@ -243,12 +210,21 @@ body::-webkit-scrollbar {
 
 .info:hover{
     color: rgb(255, 238, 0);
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .del:hover{
     color: rgb(255, 0, 0);
+}
+
+.info:hover, .del:hover{
     font-weight: bold;
+    cursor: pointer;
+}
+
+.display-flex{
+    display: flex;
+}
+
+.cursor{
     cursor: pointer;
 }

@@ -134,14 +134,14 @@ let app = new Vue({
     },
 
     methods:{
-        chatswitch: function(index) {
+        chatswitch: function(index) {                   // Seleziona chat
                 this.chatselected = index;
         },
 
         sendmex: function(){
                 let spacetextctrl = this.sentmessages.replace(/ /g, "");
-                if(spacetextctrl != "") {
-                        this.contacts[this.chatselected].messages.push(
+                if(spacetextctrl != "") {                                       // Controllo messaggi vuoti o con soli spazi
+                        this.contacts[this.chatselected].messages.push(         // Invio messaggi
                 {
                     date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
                     text: this.sentmessages,
@@ -152,9 +152,9 @@ let app = new Vue({
                 
 
                 setTimeout(() => {
-                        let randomtextanswer = this.randomanswer[Math.floor(Math.random() * this.randomanswer.length)];
+                        let randomtextanswer = this.randomanswer[Math.floor(Math.random() * this.randomanswer.length)];         // Crea risposta random
 
-                        this.contacts[this.chatselected].messages.push(
+                        this.contacts[this.chatselected].messages.push(                 // Ricevere messaggio di risposta dopo 1 secondo
                         {
                                 date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
                                 text: randomtextanswer,
@@ -165,7 +165,7 @@ let app = new Vue({
                 }
         },
 
-        searchcontactbytext: function() {
+        searchcontactbytext: function() {                               // Ricerca contatto dalla barra di ricerca
                 let nameTextSearch = this.textinsearch.toLowerCase();
                 this.contacts.forEach(i => {
                   if (i.name.toLowerCase().includes(nameTextSearch)) {
@@ -176,15 +176,15 @@ let app = new Vue({
                 });
         },
 
-        deletemex: function(del) {
+        deletemex: function(del) {                                      // Elimina messaggio
                 this.contacts[this.deletemexi].messages.splice(del, 1);
         },
 
-        infomex: function() {
+        infomex: function() {                                           // Informazioni invio messaggio (test)
                 alert("Stai chattando con " + this.contacts[this.chatselected].name);
         },
 
-        scroll: function() {
+        scroll: function() {                                            // Scroll automatico con l'aggiunta di nuoivi messaggi
                 const chat = document.querySelector('.conversation-box');
                 chat.scrollTop = chat.scrollHeight;
         
