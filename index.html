@@ -41,12 +41,12 @@
                     </div>
 
                     <div class="search-box display-flex">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textinsearch" @keyup="searchcontactbytext">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textInSearch" @keyup="searchContactByText">
                     </div>
 
                     <div v-for="(user, index) in contacts">
                         <div  v-if="user.visible">
-                            <div class="mex-list display-flex cursor" @click="chatswitch(index)">
+                            <div class="mex-list display-flex cursor" @click="chatSwitch(index)">
                                 <div class="img-profile display-flex">
                                     <img :src="user.avatar" alt="">
                                 </div>
@@ -72,24 +72,24 @@
             <div class="conv-container">
                 <div class="top-banner-main display-flex">
                     <div class="img-profile display-flex cursor">
-                        <img :src="contacts[chatselected].avatar" alt="">
+                        <img :src="contacts[chatSelected].avatar" alt="">
                     </div>
 
-                    <h4 class="cursor">{{contacts[chatselected].name}}</h4>
+                    <h4 class="cursor">{{contacts[chatSelected].name}}</h4>
                 </div>
 
                 <div class="conversation-box">
-                    <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
-                        <div  class="cursor" :class="`mex-${contacts[chatselected].messages[mexindex].status}`" @click="mexuser.deleteoption = !mexuser.deleteoption">
+                    <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatSelected].messages">
+                        <div  class="cursor" :class="`mex-${contacts[chatSelected].messages[mexindex].status}`" @click="mexuser.deleteOption = !mexuser.deleteOption">
                             <div>
-                                <span class="text-mex-word-break">{{contacts[chatselected].messages[mexindex].text}}</span>
-                                <div class="text-mex-date">{{contacts[chatselected].messages[mexindex].date}}</div>    
+                                <span class="text-mex-word-break">{{contacts[chatSelected].messages[mexindex].text}}</span>
+                                <div class="text-mex-date">{{contacts[chatSelected].messages[mexindex].date}}</div>    
                             </div>
 
                             <div class="delete-info-box" >
-                                <div class="mex-options display-flex" v-if="mexuser.deleteoption">
-                                    <div class="info" @click="infomex(mexindex)">Info</div>
-                                    <div class="del" @click="deletemex(mexindex)">Elimina</div>
+                                <div class="mex-options display-flex" v-if="mexuser.deleteOption">
+                                    <div class="info" @click="infoMex(mexindex)">Info</div>
+                                    <div class="del" @click="deleteMex(mexindex)">Elimina</div>
                                 </div>    
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                 
                     <i class="fas fa-paperclip cursor"></i>
                 
-                    <input v-model="sentmessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendmex">
+                    <input v-model="sentMessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendMex">
                 
                     <i class="fas fa-microphone cursor"></i>
                 

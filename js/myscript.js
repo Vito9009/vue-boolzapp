@@ -30,11 +30,11 @@ permette di cancellare il messaggio selezionato
 let app = new Vue({
     el: '#myvueboolzapp',
     data: {
-        chatselected: 0,
-        sentmessages: "",
-        textinsearch: "",
-        deletemexi: 0,
-        randomanswer:["Ciao", "Ci vediamo più tardi", "Mi raccomando, fatti sentire", "Il cane l'ho lasciato alla tua vicina", "Sicura che non ti serve una mano?", "Possiamo andare al cinema e dopo al ristorante"],
+        chatSelected: 0,
+        sentMessages: "",
+        textInSearch: "",
+        deleteMexi: 0,
+        randomAnswer:["Ciao", "Ci vediamo più tardi", "Mi raccomando, fatti sentire", "Il cane l'ho lasciato alla tua vicina", "Sicura che non ti serve una mano?", "Possiamo andare al cinema e dopo al ristorante"],
         contacts: [
             {
             name: 'Michela',
@@ -45,19 +45,19 @@ let app = new Vue({
                     date: '10/01/2020 15:30:55',
                     text: 'Hai portato a spasso il cane?',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '10/01/2020 15:50:00',
                     text: 'Ricordati di dargli da mangiare',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '10/01/2020 16:15:22',
                     text: 'Tutto fatto!',
                     status: 'received',
-                    deleteoption: false
+                    deleteOption: false
                     }
                     ],
             },
@@ -70,19 +70,19 @@ let app = new Vue({
                     date: '20/03/2020 16:30:00',
                     text: 'Ciao come stai?',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '20/03/2020 16:30:55',
                     text: 'Bene grazie! Stasera ci vediamo?',
                     status: 'received',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '20/03/2020 16:35:00',
                     text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     }
                     ],
             },
@@ -95,19 +95,19 @@ let app = new Vue({
                     date: '28/03/2020 10:10:40',
                     text: 'La Marianna va in campagna',
                     status: 'received',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '28/03/2020 10:20:10',
                     text: 'Sicuro di non aver sbagliato chat?',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '28/03/2020 16:15:22',
                     text: 'Ah scusa!',
                     status: 'received',
-                    deleteoption: false
+                    deleteOption: false
                     }
                     ],
             },
@@ -120,13 +120,13 @@ let app = new Vue({
                     date: '10/01/2020 15:30:55',
                     text: 'Lo sai che ha aperto una nuova pizzeria?',
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     },
                     {
                     date: '10/01/2020 15:50:00',
                     text: 'Si, ma preferirei andare al cinema',
                     status: 'received',
-                    deleteoption: false
+                    deleteOption: false
                     }
                     ],
                 },
@@ -134,39 +134,39 @@ let app = new Vue({
     },
 
     methods:{
-        chatswitch: function(index) {                   // Seleziona chat
-                this.chatselected = index;
+        chatSwitch: function(index) {                   // Seleziona chat
+                this.chatSelected = index;
         },
 
-        sendmex: function(){
-                let spacetextctrl = this.sentmessages.replace(/ /g, "");
-                if(spacetextctrl != "") {                                       // Controllo messaggi vuoti o con soli spazi
-                        this.contacts[this.chatselected].messages.push(         // Invio messaggi
+        sendMex: function(){
+                let spacTextCtrl = this.sentMessages.replace(/ /g, "");
+                if(spacTextCtrl != "") {                                       // Controllo messaggi vuoti o con soli spazi
+                        this.contacts[this.chatSelected].messages.push(         // Invio messaggi
                 {
                     date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
-                    text: this.sentmessages,
+                    text: this.sentMessages,
                     status: 'sent',
-                    deleteoption: false
+                    deleteOption: false
                     });
-                this.sentmessages = "";
+                this.sentMessages = "";
                 
 
                 setTimeout(() => {
-                        let randomtextanswer = this.randomanswer[Math.floor(Math.random() * this.randomanswer.length)];         // Crea risposta random
+                        let randomTextAnswer = this.randomAnswer[Math.floor(Math.random() * this.randomAnswer.length)];         // Crea risposta random
 
-                        this.contacts[this.chatselected].messages.push(                 // Ricevere messaggio di risposta dopo 1 secondo
+                        this.contacts[this.chatSelected].messages.push(                 // Ricevere messaggio di risposta dopo 1 secondo
                         {
                                 date: dayjs().format("DD/MM/YYYY HH.mm.ss"),
-                                text: randomtextanswer,
+                                text: randomTextAnswer,
                                 status: 'received',
-                                deleteoption: false
+                                deleteOption: false
                         });
                 }, 1000);
                 }
         },
 
-        searchcontactbytext: function() {                               // Ricerca contatto dalla barra di ricerca
-                let nameTextSearch = this.textinsearch.toLowerCase();
+        searchContactByText: function() {                               // Ricerca contatto dalla barra di ricerca
+                let nameTextSearch = this.textInSearch.toLowerCase();
                 this.contacts.forEach(i => {
                   if (i.name.toLowerCase().includes(nameTextSearch)) {
                     i.visible = true;
@@ -176,12 +176,12 @@ let app = new Vue({
                 });
         },
 
-        deletemex: function(del) {                                      // Elimina messaggio
-                this.contacts[this.deletemexi].messages.splice(del, 1);
+        deleteMex: function(del) {                                      // Elimina messaggio
+                this.contacts[this.deleteMexi].messages.splice(del, 1);
         },
 
-        infomex: function() {                                           // Informazioni invio messaggio (test)
-                alert("Stai chattando con " + this.contacts[this.chatselected].name);
+        infoMex: function() {                                           // Informazioni invio messaggio (test)
+                alert("Stai chattando con " + this.contacts[this.chatSelected].name);
         },
 
         scroll: function() {                                            // Scroll automatico con l'aggiunta di nuoivi messaggi
