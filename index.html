@@ -13,16 +13,16 @@
        <div class="container display-flex">
             <div class="mex-container">
                 <div class="top-banner display-flex">
-                    <div class="img-profile display-flex">
+                    <div class="img-profile display-flex cursor">
                         <img src="img/1.png" alt="">
                     </div>
 
                     <div class="top-banner-icon display-flex">
-                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-circle-notch cursor"></i>
 
-                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-comment-alt cursor"></i>
 
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v cursor"></i>
                     </div>
                 </div>
 
@@ -30,13 +30,13 @@
 
                 
                     <div class="notification-popup display-flex">
-                        <div class="icon-notify display-flex">
+                        <div class="icon-notify display-flex cursor">
                             <i class="fas fa-bell-slash"></i>
                         </div>
 
                         <div class="text-notify">
-                            <div>Ricevi notifiche di nuovi messaggi</div>
-                            <div>Attiva notifiche desktop <i class="fas fa-angle-right"></i></div>
+                            <div class="cursor">Ricevi notifiche di nuovi messaggi</div>
+                            <div class="cursor">Attiva notifiche desktop <i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
 
                     <div v-for="(user, index) in contacts">
                         <div  v-if="user.visible">
-                            <div class="mex-list display-flex" @click="chatswitch(index)">
+                            <div class="mex-list display-flex cursor" @click="chatswitch(index)">
                                 <div class="img-profile display-flex">
                                     <img :src="user.avatar" alt="">
                                 </div>
@@ -71,16 +71,16 @@
 
             <div class="conv-container">
                 <div class="top-banner-main display-flex">
-                    <div class="img-profile display-flex">
+                    <div class="img-profile display-flex cursor">
                         <img :src="contacts[chatselected].avatar" alt="">
                     </div>
 
-                    <h4>{{contacts[chatselected].name}}</h4>
+                    <h4 class="cursor">{{contacts[chatselected].name}}</h4>
                 </div>
 
                 <div class="conversation-box">
                     <div class="clearfix" v-for="(mexuser, mexindex) in contacts[chatselected].messages">
-                        <div :class="`mex-${contacts[chatselected].messages[mexindex].status}`" @click="mexuser.deleteoption = !mexuser.deleteoption">
+                        <div  class="cursor" :class="`mex-${contacts[chatselected].messages[mexindex].status}`" @click="mexuser.deleteoption = !mexuser.deleteoption">
                             <div>
                                 <span class="text-mex-word-break">{{contacts[chatselected].messages[mexindex].text}}</span>
                                 <div class="text-mex-date">{{contacts[chatselected].messages[mexindex].date}}</div>    
@@ -100,13 +100,13 @@
                 
                 
                 <div class="bottom-banner display-flex">
-                    <i class="far fa-grin"></i>
+                    <i class="far fa-grin cursor"></i>
                 
-                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-paperclip cursor"></i>
                 
                     <input v-model="sentmessages"  type="text" placeholder="Scrivi un messaggio"  @keyup.enter="sendmex">
                 
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-microphone cursor"></i>
                 
                 </div>
             </div>

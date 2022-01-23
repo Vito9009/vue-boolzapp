@@ -11,6 +11,14 @@ body{
     font-size: 14px;
 }
 
+.display-flex{
+    display: flex;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
 body, .main-conv-container, .conversation-box{ /* Internet Explorer + Edge + Firefox*/
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -218,13 +226,5 @@ body::-webkit-scrollbar, .main-conv-container::-webkit-scrollbar, .conversation-
 
 .info:hover, .del:hover{
     font-weight: bold;
-    cursor: pointer;
-}
-
-.display-flex{
-    display: flex;
-}
-
-.cursor{
     cursor: pointer;
 }
